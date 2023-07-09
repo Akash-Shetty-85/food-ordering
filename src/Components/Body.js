@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import '../Styles/Body.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faArrowRight, faBurger, faPlus} from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight, faBurger, faPlus } from '@fortawesome/free-solid-svg-icons'
+
+import KitchenIcon from '@mui/icons-material/Kitchen';
 
 const PopularDishes = [{
     imageLink: 'https://media.gettyimages.com/photos/fish-biryani-with-basmati-rice-indian-food-picture-id488481490',
@@ -71,6 +73,29 @@ const CardContent = [
     },
 
 ];
+const dishes = [
+    {
+      name: "Masala Mughlai",
+      rating: 4.2,
+      description: "Chicken fried in deep tomato sauce with delicious spices",
+      equipments: [
+        "Refrigerator",
+        "Microwave"
+      ],
+      image: "https://img.freepik.com/free-photo/top-view-delicious-corn-dog_23-2149387975.jpg",
+      id: 1
+    },
+    {
+      name: "Masala Paneer",
+      rating: 4.3,
+      description: "Paneer tossed in gravy",
+      equipments: [
+        "Microwave"
+      ],
+      image: "https://img.freepik.com/free-photo/top-view-delicious-corn-dog_23-2149387975.jpg",
+      id: 2
+    }
+  ];
 
 
 const Body = () => {
@@ -115,8 +140,8 @@ const Body = () => {
                             </div>
                             {dropdownOpen && (
                                 <ul className="dropdown-menu">
-                                    {Recommended.map((option) => (
-                                        <li key={option} className="dropdown-item" onClick={() => setValue(option)}>
+                                    {Recommended.map((option,index) => (
+                                        <li key={index} className="dropdown-item" onClick={() => setValue(option)}>
                                             {option}
                                         </li>
                                     ))}
@@ -124,17 +149,19 @@ const Body = () => {
                             )}
                         </div>
                     </div>
-                    {CardContent.map((card, index) => (
+                    {dishes.map((dish , index) => (
                         <>
-                            <div className="card" key={card.id}>
+                            <div className="card" key={dish.id}>
                                 <div className="card-left">
-                                    <h5>{card.title}</h5>
-                                    <p>{card.description}</p>
+                                    <h5>{dish.name}<span className='rating'>{dish.rating}{'\u2605'}</span></h5>
+                                    <p>Equipments: {dish.equipments.join(", ")}</p>
+                                    {/* <KitchenIcon/> */}
+                                    <p>{dish.description}</p>
                                 </div>
                                 <div className="card-right">
-                                    <img src={card.image} alt={card.title} />
+                                    <img src={dish.image} alt={dish.title} />
                                     <button className='addButton'
-                                    >ADD <span><sup><FontAwesomeIcon icon={faPlus} size="2xs" style={{color: "#e28446",}} /></sup></span></button>
+                                    >ADD <span><sup><FontAwesomeIcon icon={faPlus} size="2xs" style={{ color: "#e28446", }} /></sup></span></button>
                                 </div>
 
                             </div>{index !== CardContent.length - 1 && <hr className="card-line" />}
@@ -143,13 +170,13 @@ const Body = () => {
                 </div>
             </div>
             <div className='itemsContainer'>
-            {/* <FontAwesomeIcon icon={faBurgerSoda} /> */}
-            <div>
-            <FontAwesomeIcon  icon={faBurger}/>
-            
-            <span>3 food items selected</span>
-            </div>
-            
+                {/* <FontAwesomeIcon icon={faBurgerSoda} /> */}
+                <div>
+                    <FontAwesomeIcon icon={faBurger} />
+
+                    <span>3 food items selected</span>
+                </div>
+
                 <FontAwesomeIcon icon={faArrowRight} />
             </div>
         </>

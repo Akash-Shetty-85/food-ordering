@@ -78,9 +78,9 @@
 }
 
 .card-container {
-  /* height: 400px;
-  max-height: 600px;  
-  overflow-y: auto; */
+  height: 100%;
+  /* max-height: 600px;   */
+  overflow-y: auto;
 }
 
 .card-scroll {
@@ -91,31 +91,33 @@
 }
 
 .card-right img {
-  width: 200px;
+  /* width: 200px; */
   max-width: 200px;
   height: 200px;
-  border-radius: 5px;
+  border-radius: 15px;
 }
 
 .card-line {
   border: 1px solid #ddd5d5;
   margin: 10px 0;
 }
-.addButton{
+
+.addButton {
   height: 3vh;
-  width: 10vw;
+  width: 5vw;
   color: #ff7f50;
   font-weight: 600;
   background-color: white;
-  border:1px solid #ff7f50;
+  border: 1px solid #ff7f50;
   border-radius: .5rem;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
- position: absolute;
- top: 90%;
- left: 10%;
+  position: absolute;
+  top: 90%;
+  left: 5%;
 }
+
 .itemsContainer {
   position: fixed;
   bottom: 30px;
@@ -131,8 +133,13 @@
   align-items: center;
   justify-content: space-around;
 }
-.itemsContainer h3 {
-  margin: 0;
+
+.rating{
+  color: rgb(255, 255, 255);
+  background: green;
+  border: 1px solid green;
+  margin-left: 3%;
+  border-radius: 3px;
 }
 
 
@@ -140,39 +147,29 @@
   .image-item {
     margin-right: 10px;
   }
+
   .round-image {
     width: 80px;
     height: 80px;
   }
-  .image-name {
-    top: -1%;
-  }
+
   .card img {
     width: 100%;
     max-width: 200px;
     height: 100px;
   }
+
   .card-scroll {
-    max-height: 47vh;
+    max-height: 50vh;
   }
-  .addButton{
+
+  .addButton {
     width: max-content;
-  top: 80%;
- left: 30%;
+    top: 80%;
+    left: 30%;
   }
-  .itemsContainer{
+
+  .itemsContainer {
     font-size: 1.25rem;
-  }
-}
-
-@media (min-width: 751px) and (max-width: 1024px) {
-  .card-scroll {
-    /* max-height: 350px; */
-  }
-}
-
-@media (min-width: 1025px) {
-  .card-scroll {
-    /* max-height: 400px; */
   }
 }
